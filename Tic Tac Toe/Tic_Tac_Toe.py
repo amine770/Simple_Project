@@ -11,6 +11,7 @@ class Game:
         self.__board = Board()
     
     def game_start(self):
+        cleanning_Terminal()
         if self.__menu.start_game() == 2:
             print("fuck you !!")
         else:
@@ -50,6 +51,12 @@ class Game:
                     index = 1
                 else:
                     index = 0
+        
+        if self.__menu.end_game()== 0:
+            print("Fuck you !!")
+        else:
+            self.game_start()
+        
 
     def check_draw(self,board):
         for i in board:
@@ -127,7 +134,7 @@ class Menu:
     
     def end_game(self):
         print("Nice Game !!")
-        print("1- Start new game+\n2- Quite ")
+        print("1- Start new game\n2- Quite ")
         choice = int(input("Ente your chocie : "))
         while not(1<=choice<=2):
             choice = int(input("Enter your choice (should be  1 or 2) : "))
